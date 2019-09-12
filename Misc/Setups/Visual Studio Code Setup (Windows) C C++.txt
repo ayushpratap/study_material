@@ -1,0 +1,59 @@
+@author	:	Ayush Pratap Singh
+@email 	:	ayush_singh@adityagroup.com
+
+Note	:	Code written in linux enviroment and for linux enviroment will not be compilable in windows enviroment.
+Recommendation	:	Use of CMake is recomended to make the code cross platform, this will not omit the issue of
+					use platform dependednt libraries but it will make writing cross platform code easier.
+
+1.	Download VSC from officla microsoft website : https://code.visualstudio.com/download
+
+2.	Install VSC using the installer downloaded in Step-1
+
+3.	Setting up VSC for C/C++ developemnt
+	a.	Install MingW
+		- 	Go to http://www.mingw.org/
+		- 	Go to Download TAB in top right corner
+		- 	Download mingw-get-setup.exe
+		- 	Run mingw-get-setup.exe
+		Note : Default location of location should be C:\MinGW , if not then edit it.
+		-	After some downloads 'continue' button will be enabled, click the continue button
+		-	Select following packages for installation (these are specific to C/C++ developemnt)
+			*	mingw-developemnt-toolkit
+			*	mingw32-base
+			*	mingw32-gcc-g++
+			*	msys-base
+		-	In the MinGW Installation Manager go to Installation > Apply Changes , click on Apply on dialog-box [This will start the download and installation of required packages]
+	b.	Editing the enviroment variable
+		-	Open control panel
+		-	Click on System and Security
+		-	Click on System
+		-	Click on Advance system settings
+		-	Click on Environment variables
+		-	Choose the Path enviroment variable in System variables
+		-	Double click on it
+		-	Add new varibale by clicking on New
+		-	Paste this path C:\MinGW\bin
+		-	Click OK
+		-	Click OK
+		-	Click OK
+	c. Check if MinGW is working or not
+		-	Open command prompt
+		-	Type the following command to check the version of g++
+			*	g++ --version
+		-	If above mentioned step gives a valid output then that means MinGW is installed and working properly else repeate the installation
+	d.	Setup VSC
+		-	Install the officla C/C++ extension 
+			*	Go to extension button (On left side bar)
+			*	Search for C++
+			* 	Install the extension by Microsoft
+			*	Reload the VSC (Close and re-open VSC)
+		-	Edit configurations
+			*	Open command pallet by pressing ctrl+shift+p
+			*	Search for C/C++:Edit Configurations (UI)
+			*	Set compiler path to C:/MinGW/bin/g++.exe
+				Note	:	instead of typing this option can also be selected from drop down list avaibale
+			*	Set IntelliSense mode to : gcc-x64
+			*	Include C++ include files in includePath
+				-	In include path add this path in new line : "C:\MinGW\lib\gcc\mingw32\{YOUR_VERSION_OF_MINGW}\include\c++"
+	
+	NOTE	:	We require task.json and launch.json to compile our code in VSC , if that information is required I can add that to the document.
